@@ -1,0 +1,67 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212; /* modern dark gray/black */
+  color: #f2f2f2;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* INTRO OVERLAY */
+#intro {
+  position: fixed;
+  inset: 0;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.intro-text {
+  position: relative;
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 900;
+  color: #1a1a1a; /* dark gray text, almost invisible */
+  z-index: 1;
+}
+
+.text-overlay {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 120%;
+  width: 0%;
+  background-color: #f2f2f2;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* HOME PAGE CONTENT */
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  opacity: 0; /* start hidden */
+}
+
+.titles {
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
