@@ -11,19 +11,16 @@ window.addEventListener("load", () => {
     introText.style.backgroundPosition = "0 0";
   }, 500);
 
-  // Step 2: Scale up text while staying centered
-  setTimeout(() => {
-    introText.style.transform = "translate(-50%, -50%) scale(1.3)";
+ // Step 2: Scale up text while staying centered
+setTimeout(() => {
+  introText.style.transform = "translate(-50%, -50%) scale(1.3)";
 
-    // Step 3: Bring in navbar
-    setTimeout(() => {
-      navbar.style.opacity = 1;
-      navLeft.style.transform = "translateX(0)";
-      navRight.style.transform = "translateX(0)";
-      navCenter.style.transform = "translateY(0)";
-    }, 500);
-  }, 2000);
-});
+  // Step 3: Bring in navbar at the same time
+  navbar.style.opacity = 1;
+  navLeft.style.transform = "translateX(0)";
+  navRight.style.transform = "translateX(0)";
+  navCenter.style.transform = "translateY(0)";
+}, 2000); // same timing as your name scaling
 
 // Scroll fade effect
 window.addEventListener("scroll", () => {
