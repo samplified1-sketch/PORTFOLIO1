@@ -1,4 +1,4 @@
-/* General Reset */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,62 +6,67 @@
 }
 
 body {
-  background-color: #121212; /* modern dark gray/black */
-  color: #f2f2f2;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
-  overflow: hidden;
+  background-color: black;
+  color: white;
+  height: 200vh; /* so scrolling works */
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* INTRO OVERLAY */
-#intro {
+/* Navbar layout */
+.navbar {
   position: fixed;
-  inset: 0;
-  background-color: #121212;
+  top: 0;
+  width: 100%;
+  padding: 20px 50px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  overflow: hidden;
-}
-
-.intro-text {
-  position: relative;
-  font-size: clamp(3rem, 10vw, 8rem);
-  font-weight: 900;
-  color: #1a1a1a; /* dark gray text, almost invisible */
-  z-index: 1;
-}
-
-.text-overlay {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 120%;
-  width: 0%;
-  background-color: #f2f2f2;
-  transform: translateY(-50%);
-  z-index: 2;
-}
-
-/* HOME PAGE CONTENT */
-#home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  opacity: 0; /* start hidden */
-}
-
-.titles {
-  text-align: center;
-}
-
-.title {
-  font-size: 2.5rem;
-  margin: 1rem 0;
+  font-size: 20px;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s ease;
+  transform: translateY(-50px);
+  animation: navbarIn 1.5s ease forwards;
+  animation-delay: 1.5s; /* sync with hero scale */
 }
+
+.nav-center {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hero-text {
+  font-size: 40px;
+  text-align: center;
+  transform: scale(0.8);
+  animation: heroScale 1.5s ease forwards;
+}
+
+/* Animations */
+@keyframes heroScale {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes navbarIn {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade out hero text on scroll */
+.hero-text {
+  transition: opacity 0.3s;
+}
+
