@@ -51,34 +51,36 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
-  font-weight: bold;
-  font-size: 1rem;
+  font-weight: 500;
+  font-size: 0.9rem; /* smaller modern font */
+  letter-spacing: 1px;
+  text-transform: uppercase;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.8s ease;
 }
 
 #navbar .nav-left {
-  transform: translateX(-100px);
-  transition: transform 1s ease;
+  transform: translateX(-80px); /* slide in from left */
+  transition: transform 0.8s ease;
 }
 
 #navbar .nav-right {
-  transform: translateX(100px);
-  transition: transform 1s ease;
+  transform: translateX(80px); /* slide in from right */
+  transition: transform 0.8s ease;
 }
 
 #navbar .nav-center {
   display: flex;
   gap: 2rem;
-  transform: translateY(-100px);
-  transition: transform 1s ease;
+  transform: translateY(-50px); /* slide in from top */
+  transition: transform 0.8s ease;
 }
 
 #navbar a {
   color: #f2f2f2;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 #navbar a:hover {
