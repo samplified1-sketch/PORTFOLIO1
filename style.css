@@ -1,130 +1,86 @@
-/* GENERAL */
-body {
+/* RESET */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   background-color: #121212;
   color: #f2f2f2;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  height: 100vh;
-  overflow: hidden;
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* INTRO */
+#intro {
+  position: fixed;
+  inset: 0;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.intro-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1); /* start smaller */
+  transform-origin: center center; /* scaling stays centered */
+  font-size: clamp(2rem, 6vw, 5rem); /* smaller starting size */
+  font-weight: 900;
+  white-space: nowrap; /* force single line */
+  background: linear-gradient(to right, #f2f2f2 50%, #1a1a1a 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 1.5s ease, transform 2s ease, opacity 0.3s;
+  z-index: 1;
 }
 
 /* NAVBAR */
-.navbar {
+#navbar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 20px 40px;
+  top: 1.5rem;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  opacity: 0;
-  animation: fadeSlideIn 1s ease forwards;
-  animation-delay: 2s; /* comes in when name is scaling */
-}
-
-.nav-left {
-  transform: translateX(-100px);
-  animation: slideInLeft 1s ease forwards;
-  animation-delay: 2s;
-}
-
-.nav-center a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #f2f2f2;
-  font-weight: 500;
-  position: relative;
-}
-
-.nav-center a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  right: 0;
-  background: #f2f2f2;
-  transition: width 0.3s ease;
-}
-
-.nav-center a:hover::after {
-  width: 100%;
-  left: 0;
-  background: #f2f2f2;
-}
-
-.nav-center {
-  transform: translateY(-100px);
-  animation: slideDown 1s ease forwards;
-  animation-delay: 2s;
-}
-
-.nav-right {
-  transform: translateX(100px);
-  animation: slideInRight 1s ease forwards;
-  animation-delay: 2s;
-}
-
-/* HERO NAME */
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.intro-name {
-  font-size: 4rem;
+  padding: 0 2rem;
   font-weight: bold;
-  letter-spacing: 5px;
-  display: flex;
-}
-
-.intro-name span {
+  font-size: 1rem;
   opacity: 0;
-  color: #1a1a1a; /* starts almost background */
-  animation: fadeToWhite 1s forwards;
+  transition: opacity 1s ease;
 }
 
-.intro-name span:nth-child(1) { animation-delay: 0.2s; }
-.intro-name span:nth-child(2) { animation-delay: 0.4s; }
-.intro-name span:nth-child(3) { animation-delay: 0.6s; }
-.intro-name span:nth-child(4) { animation-delay: 0.8s; }
-.intro-name span:nth-child(5) { animation-delay: 1.0s; }
-.intro-name span:nth-child(6) { animation-delay: 1.2s; }
-.intro-name span:nth-child(7) { animation-delay: 1.4s; }
-.intro-name span:nth-child(8) { animation-delay: 1.6s; }
-.intro-name span:nth-child(9) { animation-delay: 1.8s; }
-.intro-name span:nth-child(10) { animation-delay: 2.0s; }
-.intro-name span:nth-child(11) { animation-delay: 2.2s; }
-.intro-name span:nth-child(12) { animation-delay: 2.4s; }
-
-/* ANIMATIONS */
-@keyframes fadeToWhite {
-  0% { opacity: 0; color: #1a1a1a; transform: translateX(-20px); }
-  100% { opacity: 1; color: #f2f2f2; transform: translateX(0); }
+#navbar .nav-left {
+  transform: translateX(-100px);
+  transition: transform 1s ease;
 }
 
-@keyframes fadeSlideIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+#navbar .nav-right {
+  transform: translateX(100px);
+  transition: transform 1s ease;
 }
 
-@keyframes slideInLeft {
-  from { transform: translateX(-100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+#navbar .nav-center {
+  display: flex;
+  gap: 2rem;
+  transform: translateY(-100px);
+  transition: transform 1s ease;
 }
 
-@keyframes slideDown {
-  from { transform: translateY(-100px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+#navbar a {
+  color: #f2f2f2;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
 }
 
-@keyframes slideInRight {
-  from { transform: translateX(100px); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+#navbar a:hover {
+  color: #999;
 }
