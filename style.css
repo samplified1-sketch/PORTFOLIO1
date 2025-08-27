@@ -27,11 +27,11 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1); /* start smaller */
-  transform-origin: center center; /* scaling stays centered */
-  font-size: clamp(2rem, 6vw, 5rem); /* smaller starting size */
+  transform: translate(-50%, -50%) scale(1);
+  transform-origin: center center;
+  font-size: clamp(2rem, 6vw, 5rem);
   font-weight: 900;
-  white-space: nowrap; /* force single line */
+  white-space: nowrap;
   background: linear-gradient(to right, #f2f2f2 50%, #1a1a1a 50%);
   background-size: 200% 100%;
   background-position: 100% 0;
@@ -52,28 +52,33 @@ body {
   align-items: center;
   padding: 0 2rem;
   font-weight: 500;
-  font-size: 0.9rem; /* smaller modern font */
+  font-size: 0.9rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   opacity: 0;
+  z-index: 10000; /* above intro */
   transition: opacity 0.8s ease;
 }
 
+#navbar .nav-left,
+#navbar .nav-right,
+#navbar .nav-center {
+  opacity: 0; /* start invisible */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
 #navbar .nav-left {
-  transform: translateX(-80px); /* slide in from left */
-  transition: transform 0.8s ease;
+  transform: translateX(-80px);
 }
 
 #navbar .nav-right {
-  transform: translateX(80px); /* slide in from right */
-  transition: transform 0.8s ease;
+  transform: translateX(80px);
 }
 
 #navbar .nav-center {
   display: flex;
   gap: 2rem;
-  transform: translateY(-50px); /* slide in from top */
-  transition: transform 0.8s ease;
+  transform: translateY(-50px);
 }
 
 #navbar a {
