@@ -6,22 +6,30 @@ window.addEventListener("load", () => {
   const navRight = document.querySelector(".nav-right");
   const navCenter = document.querySelector(".nav-center");
 
+  // Debug log
+  console.log("✅ Script loaded and running");
+
   // Step 1: Reveal text with gradient wipe
   setTimeout(() => {
     introText.style.backgroundPosition = "0 0";
   }, 500);
 
-  // Step 2: Scale up text while staying centered
+  // Step 2: Scale up text while staying centered + show navbar
   setTimeout(() => {
     introText.style.transform = "translate(-50%, -50%) scale(1.3)";
 
-    // Step 3: Bring in navbar at the same time
-    navbar.style.opacity = 1;
+    // Step 3: Bring in navbar elements
+    navbar.style.opacity = "1";
+
     navLeft.style.transform = "translateX(0)";
     navRight.style.transform = "translateX(0)";
     navCenter.style.transform = "translateY(0)";
-  }, 2000);
-}); // ✅ closes the load event properly
+
+    navLeft.style.opacity = "1";
+    navRight.style.opacity = "1";
+    navCenter.style.opacity = "1";
+  }, 2000); // same timing as name scaling
+});
 
 // Scroll fade effect
 window.addEventListener("scroll", () => {
