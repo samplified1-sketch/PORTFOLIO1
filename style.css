@@ -1,4 +1,12 @@
-/* RESET */
+/* FONT SETUP */
+@font-face {
+  font-family: 'MonumentExtended';
+  src: url('fonts/MonumentExtended-Ultrabold.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* RESET */ 
 * {
   margin: 0;
   padding: 0;
@@ -24,6 +32,7 @@ body {
 }
 
 .intro-text {
+  font-family: 'MonumentExtended', Helvetica, Arial, sans-serif;
   position: fixed;
   top: 50%;
   left: 50%;
